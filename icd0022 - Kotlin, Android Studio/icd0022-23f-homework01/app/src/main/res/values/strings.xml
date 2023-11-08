@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Puzzle15</string>
+    <string name="_1">1</string>
+    <string name="_10">10</string>
+    <string name="_11">11</string>
+    <string name="_12">12</string>
+    <string name="_13">13</string>
+    <string name="_14">14</string>
+    <string name="_15">15</string>
+    <string name="_empty">-</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="undo_move">Undo move</string>
+    <string name="reshuffle_board">Reshuffle board: solvable</string>
+    <string name="color_schema">Color schema: dark</string>
+    <string name="move_count">Move count: 0</string>
+    <string name="time_spent">Time spent: 0s</string>
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/moveCountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/move_count"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toTopOf="@+id/timeSpentTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/timeSpentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/time_spent"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toTopOf="@+id/button17"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moveCountTextView" />
+
+    <Button
+        android:id="@+id/button17"
+        style="@style/buttonBorderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="undoButtonOnClick"
+        android:text="@string/undo_move"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toTopOf="@+id/reshuffleButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeSpentTextView" />
+
+    <Button
+        android:id="@+id/reshuffleButton"
+        style="@style/buttonBorderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="reshuffleButtonOnClick"
+        android:text="@string/reshuffle_board"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toTopOf="@+id/colorSchemaButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button17" />
+
+    <Button
+        android:id="@+id/colorSchemaButton"
+        style="@style/buttonBorderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="colorSchemaButtonOnClick"
+        android:text="@string/color_schema"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reshuffleButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

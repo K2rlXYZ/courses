@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="buttonBorderless" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:textSize">23sp</item>>
+        <item name="android:backgroundTint">@color/colorButton</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+
+    </style>
+
+</resources>

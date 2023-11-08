@@ -1,0 +1,9 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Puzzle15" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="Theme.Puzzle15" parent="Base.Theme.Puzzle15" />
+</resources>
