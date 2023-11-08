@@ -1,0 +1,53 @@
+Game of Life
+
+Harjutustunniks vajalik kood asub: https://bitbucket.org/mkalmo/icd0019gol
+
+Kirjutage rakendus, mis arvutab järgmise kaadri Game of Life mängus.
+
+Game of Life mängu mõte on see, et esialgselt määratakse etteantud maatriksisse 
+mõned rakud. Seejärel pannakse mäng käima, mis tähendab, et rakud hakkavad
+oma elu elama: etteantud reeglite põhjal otsustatakse, kas rakk jääb elama,
+sureb või paljuneb. Otsustamine käib üksnes selle põhjal, kui palju naabreid
+konkreetsel rakul on.
+
+Reeglid:
+
+  Igal rakul on kuni kaheksa naabrit (üleval, all, paremal, vasakul + diagonaalid)
+
+  Kui rakul on alla kahe naabri, siis ta sureb (alarahvastatus).
+  Kui rakul on üle kolme naabri, siis ta sureb (ülerahvastatus).
+  Kui rakul on kaks või kolm naabrit, siis elab ta edasi.
+  Kui surnud rakul (ehk rakk puudub) on täpselt kolm naabrit, siis ta elustub (paljunemine).
+
+Conway's Game of Life: http://en.wikipedia.org/wiki/Conway's_Game_of_Life.
+Videoülevaade: http://www.youtube.com/watch?v=CgOcEZinQ2I&list=FLfJhvjUWZh8bM3O09S_e_TQ
+
+Parema disaini ja programmi testitavuse huvides on kasutajaliides ja äriloogika
+jagatud eraldiseisvateks osadeks. Äriloogika osa on võimalik käivitada ja 
+seega ka testida ilma, et meil kasutajaliidest oleks.
+
+Selles ülesandes on kasutajaliides teie eest valmis tehtud ja teie peate 
+tegema ainult äriloogika osa.
+
+Klassis jvm.gol.GameOfLifeTest on testid koodi testimiseks. Soovitatav on 
+funktsionaalsust lisada sellises järjekorras nagu see testide klassis 
+kirjas on. Testide klassis on ka mõned abimeetodid, mis võiks aidata 
+programmi seisu visualiseerida.
+
+Lõpliku lahenduse proovimiseks on klass jvm.gol.Runner, mis käivitab 
+kasutajaliidese andes äriloogika osa parameetrina sisse.
+
+Tõstke kõik failid, mis on kataloogis src/gol oma 
+Bitbucket-i reposse (icd0019) kataloogi src/gol.
+
+Veenduge, et kood kompileerub.
+
+Veenduge, et testid klassist gol.GameOfLifeTest lähevad läbi.
+
+Commit-ige muudatused ja push-ige need Bitbucket-isse. 
+
+Lisage commit-ile tag ex11.
+
+Veenduge tulemuste lehelt, et tulemus on positiivne.
+
+Seletused: https://youtu.be/SZczaYYt9ys

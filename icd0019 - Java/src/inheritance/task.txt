@@ -1,0 +1,152 @@
+Pärimine
+
+Harjutustunniks vajalik kood asub: https://bitbucket.org/mkalmo/icd0019inheritance
+
+1. Paketis inheritance.constructor on mõned klassid. Kasutage klassi Runner 
+   ja looge nendest klassidest isendid. Jälgige millised konstruktorid 
+   käivituvad. Proovige läbi järgmised juhud:
+
+   new Car();
+   
+   new Car("123 ABC");
+
+   Looge klass Raven, mis laiendab klassi Bird. Tehke isend vastloodud 
+   klassist: new Raven();
+
+2. Paketis inheritance.stack on klass ExtendedStack, mis laiendab 
+   olemasolevat Java kollektsiooni Stack.
+   
+   ExtendedStack pärib ülemklassilt meetodid push() ja pop(), mille 
+   kasutamise näide on kalassis StackTest.java.
+   
+   Kirjutage need meetodid üle selliselt, et nende väljakutsumisel 
+   prinditakse konsooli teade nende meetodite käivitamise kohta. Muus 
+   osas peab meetodi käitumine samaks jääma.
+   
+   Lisage klassile ExtendedStack meetod pushAll(), mis lisab mitu argumenti 
+   korraga. Nt. pushAll(1, 2, 3) lisab kõik kolm argumeti.
+   
+   Meetodi deklaratsioon on "public void pushAll(Integer... numbers)".
+
+   "Integer..." tähendab siin 0 kuni mitu Integer tüüpi argumenti.
+
+3. Paketis inheritance.calc on klass PayCalculator, mis arvutab töötatud 
+   aja põhjal töötasu. See kalkulaator arvestab ka sellega, et tulumaks 
+   on 20% ja võtab selle tasust maha.
+   
+   Meil oleks lisaks vaja sellist kalkulaatorit, mis tulumaksu maha ei 
+   arvutaks. Failis TaxFreePayCalculator.java on selle klassi tegemist 
+   alustatud. Kirjutage see lõpuni, et kõik klassis CalculatorTest olevad 
+   testid tööle hakkaksid.
+
+   Staatilisi muutujaid üle kirjutada ei saa. Seega peate muutma pisut 
+   ka klassi PayCalculator, lisades sinna meetodi, läbi mille maksumäära
+   küsite. Selle lisatud meetodi saate hiljem alamklassis üle kirjutada.
+
+4. Paketis inheritance.sender on klassid EmailLetterSender ja SmsLetterSender.
+   Need klassid konstrueerivad kirja ja saadavad selle läbi sms-i või email-i.
+   
+   Nendel klassidel on suur hulk ühist koodi. Tehke nendele ühine abstraktne
+   ülemklass, mis sisaldaks ühisosa.
+
+5. NB! Selle ülesande juures on kõige olulisem pärimise korrektne kasutamine 
+   ja duplikatsiooni vältimine. Loogika on siin üsna lihtne ja õige vastuse 
+   saamine ei ole veel ülesande korrektne lahendamine.
+
+   Meil on olemas andmed müügi kohta. Iga kirje koosneb järgmistest 
+   komponentidest:
+
+   - toote identifikaator
+   - ühe ühiku hind
+   - müüdud kogus
+   - kas see toode on alandatud käibemaksuga
+   
+   Müügi info põhjal soovime arvutada müügi kogutulu ja müügi kogutulu 
+   konkreetse toote kohta. Kogutulusse ei arvestata käibemaksu.
+   
+   Müügi infos on ühiku hind koos käibemaksuga. Kuna müügi andmed pärinevad 
+   erineva käibemaksumääraga piirkondadest soovime analüüsi käigus seda 
+   arvestada. Seega, meil oleks vaja kolme erinevat andmete kalkulaatorit:
+   
+   1. arvutab müügitulu arvestades, et müügi infos on hinnad käibemaksuga
+      20%;
+      
+   2. arvutab müügitulu arvestades, et müügi infos on osad hinnad käibemaksuga
+      20% ja mõned käibemaksuga 10%;
+
+   3. arvutab müügitulu arvestades, et müügi infos olevad hinnad ei 
+      sisalda käibemaksu.
+   
+   Valmis on tehtud 3 klassi vastavate kalkulaatorite jaoks. Kuna kalkulaatoritel
+   saab olema suur hulk ühisosa, siis tehke neile ühine abstraktne ülemklass,
+   millesse see ühisosa läheb. Spetsiifilistes klassides peaks olema vaid 
+   "protected" meetodid minimaalse koodiga.
+   
+   Abstraktne ülemklass peab olema suletud (sealed).
+   
+   Lisage kalkulaatoritesse võimalus kõige müüvamate toodete leidmiseks.
+
+   getIdOfMostPopularItem() - tagastab kõige rohkem ühikud müünud toote 
+                              identifikaatori.
+
+   getIdOfItemWithLargestTotalSales() - tagastab kõige suurema müügituluga 
+                                        toote identifikaatori.   
+
+   Koodi testimiseks on klass SalesAnalyserTest.
+   
+   Selle ülesande koha on ka koodi ülevaatuse võimalus. Kui esitate lahenduse 
+   tähtajaks, siis tähtaja möödudes on teil võimalik kellegi teise tudengi 
+   tööd hinnata ja selle eest punkte saada. 
+   
+   Ülevaatuse leiate pärast tähtaja möödumist hindamisüsteemist ja selle 
+   esitamiseks on aega 7 päeva.
+
+   Ülevaatusel tuleb vastata ühele küsimusele.
+     - Kas koodis on põhjendamatult duplikatsiooni?
+   
+6. Tõstke kõik failid, mis on kataloogis src/inheritance/analyser oma 
+   Bitbucket-i reposse (icd0019) kataloogi src/inheritance/analyser.
+    
+    Veenduge, et kood kompileerub.
+    
+    Kui valite Idea-s Build menüüst -> Rebuild project peaks tulema teade 
+    "Compilation completed successfully ..."
+    
+    Veenduge, et testid lähevad läbi.
+    
+    Commit-ige muudatused ja push-ige need Bitbucket-isse. 
+    
+    Lisage commit-ile tag ex06.
+    
+    Veenduge tulemuste lehelt, et tulemus on positiivne.
+
+7. See ülesanne pole kohutstuslik aga selle lahenadamise eest on võimalik 
+   lisapunkte saada.
+
+   Paketis exceptions.pager on klass SimplePager, mis näitab sellele 
+   sisendiks antud täisarve lehekülgede kaupa. See klass on valmis ja 
+   seda pole vaja muuta.
+   
+   Teie ülesanne on kirjutada lõpuni klass FilteringPager, mis kasutab 
+   sisendi saamiseks SimplePager klassi aga filtreerib selle väljundist 
+   välja null väärtused.
+   
+   FilteringPager klassi loomisel antakse ette SimplePager klassi objekt, 
+   kust andmeid võtta ja lehekülje suurus ehk mitu elementi korraga väljastada.
+   Meetodid getNextPage(), getCurrentPage() ja getPreviousPage() väljastavad 
+   SimplePager klassi väljundist loetud andmeid, millest on null väärtused 
+   eemaldatud.
+      
+   Kui saame hoida kogu sisendit mälus, siis on ülesanne lihtne ja see 
+   lahendus on klassis FilteringPagerWithMemory olemas. Teie ülesanne on 
+   lahendada probleem nii, et andmeid mälus ei hoita. Mälus võib hoida 
+   ainult täisarv tüüpi muutujaid. Seega saame hoida infot nt. selle kohta 
+   kui palju infot on sisendist loetud.
+   
+   Töö testimiseks on klass FilteringPagerTests.
+   
+   Commit-ige muudatused ja push-ige need Bitbucket-isse. 
+   
+   Lisage commit-ile tag ex06a.   
+
+Seletused (1-7) ja lahendused (1-4): https://youtu.be/Cc8T_HTW_T8

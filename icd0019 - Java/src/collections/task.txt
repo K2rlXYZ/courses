@@ -1,0 +1,113 @@
+Kollektsioonid
+
+Harjutustunniks vajalik kood asub: https://bitbucket.org/mkalmo/icd0019collections
+
+1. Kirjutage meetod getStreakList(), mis võtab sisse stringi ja tagastab 
+   listi, milles on listid korduvate tähtedega.
+   
+   "abbc" -> [[a], [b, b], [c]]
+   
+   Töö testimiseks on klass collections.streaks.Tests.
+
+2. Võrrelge erinevate Set liidese implementatsioonide jõudlust.
+
+   Võrreldavad implementatsioonid on: HashSet, TreeSet ja MySet.
+   
+   Võrdlemiseks lisage set-i 30000 elementi ja mõõtke, palju see aega võtab.
+
+   Klassis collections.benchmark.Runner on selle tööga alustatud.
+
+3. Klassis collections.cache.Fibonacci on rekursiivne implementatsioon 
+   Fibonacci numbrite arvutajast.
+   
+   Selline implementatsioon on väga aeglane, kuna arvutab samu asju 
+   mitmeid kordi üle. Lisage sellele koodile vahemälu (cache), mis hoiab 
+   meeles juba välja arvutatud väärtusi.
+
+4. Kasutades simulatsiooni, arvutage välja kui suur peab olema inimeste 
+   grupp, et selles grupis oleks kahel inimesel samal päeval sünnipäev.
+   
+   Arvestatud on keskmise väärtusega. Erinevate gruppide piires võib see 
+   väärtus üsna oluliselt erineda.
+   
+   Et saada keskmist väärtust, peate tegema mitu katset.
+   
+   Klassis collections.set.Birthday on selle tööga alustatud.
+   
+5. Veenduge, et HashSet-i kasutamisel on oluline, et sellesse pandavad 
+   elemendid kirjutavad üle hashCode() meetodi.
+   
+   Klassis collections.set.HashCodeExample on selle tööga alustatud.
+
+6. Lõplik eesmärk on koostada simulatsioon erinevate pokkeri käte tõenäosuse 
+   arvutamiseks. 
+   
+   Esmalt oleks vaja koodi, mis ütleks kas valitud kaardid 
+   sisaldavad mõnda kombinatsiooni. Nt. paar, kaks paari, kolmik, jne.
+   Täieliku loetelu arvesse minevatest kombinatsioonidest leidate nt. 
+   aadressilt https://en.wikipedia.org/wiki/List_of_poker_hands.
+
+   Kuigi antud lahenduse saaks ühte meetodisse kokku panna on parema koodi 
+   disaini huvides, probleemi lahendamiseks appi võetud klassid Card ja Hand.
+
+   Kaarte peaks olema võimalik ka sorteerida.
+
+   Seega, peaksite kirjutama lõpuni klassi collections.simulator.Hand.
+   
+   Töö testimiseks on klass collections.simulator.HandTests.  
+
+7. Tõstke kõik failid, mis on kataloogis src/collections/simulator oma 
+   Bitbucket-i reposse (icd0019) kataloogi src/collections/simulator.
+    
+    Veenduge, et kood kompileerub.
+    
+    Kui valite Idea-s Build menüüst -> Rebuild project peaks tulema teade 
+    "Compilation completed successfully ..."
+    
+    Veenduge, et testid lähevad läbi.
+    
+    Commit-ige muudatused ja push-ige need Bitbucket-isse. 
+    
+    Lisage commit-ile tag ex07.
+    
+    Veenduge tulemuste lehelt, et tulemus on positiivne.
+
+8. Kui see ülesanne jääb tegemata, siis saate maksimaalse viie punkti 
+   asemel neli. Seega selle korra ülesanded loetakse esitatuks ka ilma 
+   selleta. Kui see jääb tegemata saate lihtsalt ühe punkti vähem.
+
+   1) Arvutage simulatsiooni teel välja, kui suur on tõenäosus, et võttes 
+   pakist 5 kaarti saate ühe paari, kaks paari, kolmiku või mitte ühtegi 
+   pokkeri kätest. 
+   
+   Et tulemus oleks piisavalt täpne peaks võtma vähemalt 6000000 kätt.
+   Arenduse ajal on soovitatav piirduda sellise numbriga, mille 
+   arvutamine käib kiiremini.
+
+   Töö testimiseks on klassis collections.simulator.SimulatorTests olev 
+   meetod calculatesProbabilitiesUsingSimulation().
+   
+   Kõikide käte tõenäosust pole simuleeritud, kuna 6000000 katsed jääb väheks 
+   väiksema tõenäosusega kombinatsioonide tõenäosuse hindamiseks.
+
+   2) Texas Hold'em pokkeris saab iga mängija 2 kaarti ja lauale pannakse 
+      avatuna 5 kaarti. Mängija lõplik käsi on parim viiekaardine kombinatsioon 
+      enda kaartide ja laual olevate kaartide hulgast. Ehk mängija valib 
+      parimad viis kaarti seitsmest.
+       
+   Kirjutage kood, mis võimaldab simulatsiooni teel välja arvutatda, kui 
+   suur on mängija võiduvõimalus teise mängija ees, kui on teada mõlema 
+   mängija kaks kaarti ja lauale pole ühtegi kaarti pandud.
+
+   Näide: https://www.cardplayer.com/poker-tools/odds-calculator/texas-holdem
+
+   Töö testimiseks on klassis collections.simulator.SimulatorTests olev 
+   meetod calculatesWinningsOddsForHoldEmHand().
+   
+   Oluline on, et kood ei oleks liialt aeglane. Hindamissüsteemis on koodi 
+   käivitamise ajapiirang 25 sekundit. Testid käivitatakse paraleelselt ja
+   seega peaks iga test ~20 sekundiga lõpetama.
+   
+   Töö märgistage tag-iga ex07a
+
+Seletused 1-8 ja lahendused 1-5: https://youtu.be/KCI2cNe9O9c

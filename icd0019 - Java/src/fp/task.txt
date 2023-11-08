@@ -1,0 +1,131 @@
+Anonüümsed funktsioonid ja Stream API
+
+Harjutustunniks vajalik kood asub: https://bitbucket.org/mkalmo/icd0019fp
+
+1. Klassis fp.Filter on meetod filter(), mis peaks sisse antud listist 
+   filtreerima välja elemendid, mis vastavad etteantud tingimusele.
+   
+   Kirjutage see meetod lõpuni.
+   
+   Koodi testimiseks on test samas klassis.
+
+2. Klassis fp.Map on meetod map(), mis peaks sisse antud listi
+   elemente transformeerima etteantud reegli kohaselt.
+   
+   Kirjutage see meetod lõpuni.
+   
+   Koodi testimiseks on test samas klassis.
+
+3. Klassis fp.Timer on meetod executeAndTime(), mis peaks sisse võtma 
+   koodi, mida käivitada, selle koodi käivitama ja väljastama tulemuse, 
+   kui palju käivitamine aega võttis.
+   
+   Kirjutage see meetod lõpuni.
+   
+   Aja mõõtmise kohta on näide samas klassis meetodi measureExecutionTimeExample().
+   
+   Koodi parameetrina saatmise näide on klassis fp.examples.AssertThrows.
+
+4. Klassis fp.Reduce on meetod reduce(), mis võtab sisse listi ja operatsiooni, 
+   mis peaks teisendama (redutseerima) listi üksikuks väärtuseks.
+   
+   Operatsioon peab sisendiks võtma kaks väärtust ja tagastama ühe väärtuse.
+   
+   Nt. Kui list on [1, 2, 3] ja operatsioon on liitmine, siis peaks 
+       tulemus olema 1 + 2 + 3 = 6.
+       
+       Kui list on [1, 2, 4] ja operatsioon on korrutamine, siis peaks 
+       tulemus olema 1 * 2 * 4 = 8.
+   
+   Muutke meetodit nii, et sellega oleks võimalik redutseerida ka list
+   ["1", "2", "3"] väärtuseks "123".
+
+5. Klassis fp.WithResource on meetod withResource(), mis peaks võimaldama,
+   klassi Resource kasutamist kontrollitud kujul.
+
+   Ülesandes on kasutatud klassi Resource, mille ülesanne on simuleerida 
+   mingi reaalse ressursi käitumist. Praktikas võiks selleks ressursiks 
+   olla nt. fail, andmebaas, mõni rakendus või mistahes asi, millega suhtlus 
+   peaks toimuma kindlate reeglite alusel. Antud näites on reegliks see, 
+   et ressurss tuleb enne kasutamist avada ja pärast sulgeda.
+
+   Soovime saavutada seda, et kasutaja ei peaks ise ressursi avamisele ja 
+   sulgemisele mõtlema ja seega oleks vigade tekkimise võimalus väiksem.
+
+   Soovitud käitumist kirjeldab samas failis olev test.
+   
+   Kirjutage lõpuni meetod withResource().
+
+6. Klassis fp.Numbers on list numbritest. Kasutades Stream API võimalusi
+
+   a) leidke nende hulgast paaritud arvud;
+   b) leidke paaritud arvud, mis on suuremad kui 10;
+   c) leidke paaritute arvude, ruudud;
+   d) leidke paaritute arvude, summa.
+   
+7. Klassis fp.Persons on list isikutest. Kasutades Stream API võimalusi
+
+   a) leidke nende hulgast isik, kelle id on 2;
+   b) eemaldage isik, kelle id on 2;
+   c) leidke isikute nimed ja väljastage need komaga ühendatud sõnena 
+      ("Alice, Bob, Carol");
+   c) sorteerige isikud vanuse järjekorras kahanevalt.
+   
+8. Paketis fp.examples on näide erinevatest Stream API operatsioonidest.
+
+   Vaadake need näited üle ja veenduge, et saate aru, kuidas need töötavad.
+   
+   Näidetes olevad operatsioonid on täiesti piisavad koduse ülesande lahendamiseks.
+
+9. NB! Selle ülesande koodis ei tohiks olla ühtki tavalist tsüklit (for, while).
+   
+   Failis src/fp/sales/sales-data.csv on andmed müügi kohta. Kasutades 
+   Stream API võimalusi leidke
+   
+   a) kogu müük;
+   b) müük kategoorias "Office Supplies";
+   c) müük vahemikul 2016-01-01 kuni 2016-03-31;
+   d) kolme kallima toote id-d tähestiku järjekorras;
+   e) kolm suurima müügiga osariiki.
+
+   Faili lugemiseks on:
+     
+     Files.readAllLines(Paths.get(FILE_PATH));
+     
+   Kirjed on eraldatud tabulaatoriga ja need saab osadeks nii:
+   
+     line.split("\t");
+     
+   Sõnest saate kuupäeva nii:
+
+     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+     LocalDate.parse(<kuupäev stringina>, formatter);   
+
+   
+   Selle ülesande koha on ka koodi ülevaatuse võimalus. Kui esitate lahenduse 
+   tähtajaks, siis tähtaja möödudes on teil võimalik kellegi teise tudengi 
+   tööd hinnata ja selle eest punkte saada. 
+   
+   Ülevaatuse leiate pärast tähtaja möödumist hindamisüsteemist ja selle 
+   esitamiseks on aega 7 päeva.
+
+   Ülevaatusel tuleb vastata ühele küsimusele.
+     - Kas koodis on kasutatud tavalist tsüklit (for, while)?
+
+10. Tõstke kõik failid, mis on kataloogis src/fp oma 
+   Bitbucket-i reposse (icd0019) kataloogi src/fp.
+    
+   Veenduge, et kood kompileerub.
+   
+   Kui valite Idea-s Build menüüst -> Rebuild project peaks tulema teade 
+   "Compilation completed successfully ..."
+   
+   Veenduge, et testid lähevad läbi.
+   
+   Commit-ige muudatused ja push-ige need Bitbucket-isse. 
+   
+   Lisage commit-ile tag ex09.
+   
+   Veenduge tulemuste lehelt, et tulemus on positiivne.
+
+Seletused ja lahendused (1-7), seletused (8-9): https://youtu.be/b99B4tTse9M

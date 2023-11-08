@@ -1,0 +1,147 @@
+Polümorfism
+
+Harjutustunniks vajalik kood asub httpsbitbucket.orgmkalmoicd0019poly
+
+1. Kirjutage sisu klassis poly.AverageTest olevale meetodile getAverage(),
+   mis võtab sisse numbrite listi ja tagastab nende keskmise väärtuse.
+   
+   List on sama mis, List extends Object. Selle küsimärgi asemele 
+   peate õige tüübi parameetri kirjutama.
+  
+2. Kirjutage sisu klassis poly.fruit.FruitTest olevale meetodile 
+   getTotalWeightInGrams(). 
+   
+   Et õunu ja apelsine koos käsitleda, peab neile üldise ülemklassi või 
+   liidese lisama.
+
+3. Klassis poly.shapes.ShapeTest on meetod, mis arvutab listis olevate 
+   kujundite kogupindala.
+   
+   Selline koodi disain on üsna kehv. Muutke kood polümorfseks nii, et 
+   igal kujundil oleks meetod getArea(). Siis peaks olema võimalik 
+   computesTotalArea() sisu oluliselt lihtsamaks teha.
+   
+   Et erinevaid kujundeid polümorfselt käsitleda peab neile üldise 
+   ülemklassi või liidese lisama.
+   
+4. Püütonis on olemas meetod range(), mis võimaldab loetavalt tsükleid 
+   kirjutada.
+   
+   Kirjutage meetod range(int start, int end), nii et tööle hakkaks 
+   järgmine kood
+
+   for (Integer integer  range(1, 7)) {
+       System.out.println(integer);
+   }
+
+   Meetod range peab tagastama objekti, mis implementeerib IterableInteger 
+   liidest. Selle liidese ainus meetod iterator(), peab omakorda tagastama 
+   objekti, mis implementeerib IteratorInteger liidest.
+
+   Tööga on alustatud failis poly.range.Runner.
+
+5. Klassis poly.undo.Calculator on lihtne kalkulaator, mis võimaldab 
+   liitmist ja korrutamist.
+
+   Lisage sellele kalkulaatorile meetod undo(), mis tühistab viimase 
+   operatsiooni.
+
+   Kuigi antud juhul oleks kõige lihtsam lahendus hektkeväärtuse 
+   meeldejätmine, siis selline lahendus paljudel juhtudel ei toimi.
+   
+   Lahendage asi selliselt, et iga käsu järel jäätakse meelde käsk, 
+   mis tehtud käsu neutraliseerib.
+   
+   Nt. kui kalkulaatorile anti käsk liida 1, siis selle tühistamiseks 
+       peaks meelde jätma käsu lahuta 1.
+
+   Töö testimiseks on test operationsCanBeUndone();
+
+6. Ettevõte soovib alustada boonuspunktide süsteemiga. Iga tellimus, 
+   mis on 100 Eurot või rohkem annab kliendile boonuspunkte.
+   
+   Kliendid jagunevad kahte gruppi püsikliendid ja kuldkliendid.
+   
+   Boonuspunkte jagatakse järgmiste reeglite alusel
+   
+     - püsiklient saab tellimuse hinnale vastava hulga boonuspunkte;
+     - kui tellimus on tehtud vähem kui üks kuu pärast eelmist tellimust, 
+       siis saab tellimuse maksumus  1,5 boonuspunkti;
+     - kuldklient saab alati tellimuse maksumus  1,5 boonuspunkti.
+
+   Ettevõte kliendid on failis srcpolycustomerdata.txt.
+   
+   Klass poly.customer.BonusCollector küsib CustomerRepository vahendusel 
+   failist kliendi, arvutab kliendile boonuspunktid ja salvestab CustomerRepository 
+   vahendusel kliendi. Klassi poly.customer.BonusCollector kood on valmis 
+   ja seda ei tohi muuta.
+
+   Boonuspunktide arvutamine peaks olema tehtud polümorfselt.
+   AbstractCustomer klassis on abstraktne meetod, collectBonusPointsFrom(),
+   millele peaksid alamklassid (nt. RegularCustomer ja GoldCustomer) 
+   implementatsiooni lisama.
+   
+   Lisaks peate kirjutama lõpuni klassi poly.customer.CustomerRepository,
+   mis loeb failist klientide info ja mille abil saab id järgi konkreetse 
+   kliendi välja küsida. Kui kliendile on boonuspunktid lisatud, saab 
+   CustomerRepository klassi abil kliendi ka ära salvestada (faili kirjutada).
+   
+   Kui failist lugemine või sinna kirjutamine ebaõnnestub, siis peab 
+   programm lõppema veaga.
+   
+   Töö tesimiseks on klassid poly.customer.RepositoryTests ja poly.customer.CustomerTests.
+
+   Selle ülesande koha on ka koodi ülevaatuse võimalus. Kui esitate lahenduse 
+   tähtajaks, siis tähtaja möödudes on teil võimalik kellegi teise tudengi 
+   tööd hinnata ja selle eest punkte saada. 
+   
+   Ülevaatuse leiate pärast tähtaja möödumist hindamisüsteemist ja selle 
+   esitamiseks on aega 7 päeva.
+
+   Ülevaatusel tuleb vastata kehele küsimusele.
+     - Kas faili operatsioonide veahaldus (trycatch) on korrektne
+     - Kas koodis on põhjendamatut duplikatsiooni
+
+7. Kui see ülesanne jääb tegemata, siis saate maksimaalse viie punkti 
+   asemel kolm. Seega selle korra ülesanded loetakse esitatuks ka ilma 
+   selleta. Kui see jääb tegemata saate lihtsalt kaks punkti vähem.
+
+   Peaksite kirjutama koodi, mis aitab ette antud summa jagada igakuisteks 
+   osamakseteks ette antud perioodi jooksul.
+
+   Osamakseteks jagamine toimub järgmiste reeglite alusel
+   
+     - üldjuhul tulevad osamaksed kuu 1. päevale;
+     - kui periood algab pärast 1. kuupäeva, siis on makse perioodi esimesel päeval;
+     - minimaalne ühik on 1 Euro; kui summa ei jagu Euro täpsusega, 
+       siis jaotatakse vahe viimaste osamaksete vahel;
+     - miinimum osamakse summa on 3 Eurot.
+
+   Nt. kui jagatav summa on 10 ja periood on 2023-04-04 kuni 2023-06-07,
+   siis tulevad järgmised osamaksed (kuupäev - summa)
+
+      2023-04-04 - 3 Eurot
+      2023-05-01 - 3 Eurot
+      2023-06-01 - 4 Eurot (jääk läheb viimasele osamaksele)   
+
+   Koodi testimiseks on klass poly.installments.InstallmentGeneratorTests.
+   
+   Töö märgistage tag-iga ex10a
+
+8. Tõstke kõik failid, mis on kataloogis srcpoly oma 
+   Bitbucket-i reposse (icd0019) kataloogi srcpoly.
+    
+   Veenduge, et kood kompileerub.
+   
+   Kui valite Idea-s Build menüüst - Rebuild project peaks tulema teade 
+   Compilation completed successfully ...
+   
+   Veenduge, et testid klassist poly.TestSuite lähevad läbi.
+   
+   Commit-ige muudatused ja push-ige need Bitbucket-isse. 
+   
+   Lisage commit-ile tag ex10.
+   
+   Veenduge tulemuste lehelt, et tulemus on positiivne.
+
+Lahendused (1-5) httpsyoutu.bevqDmbT6FFzE

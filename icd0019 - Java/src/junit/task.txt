@@ -1,0 +1,219 @@
+Üksuste testimine
+
+Harjutustunniks vajalik kood asub: https://bitbucket.org/mkalmo/icd0019junit
+
+1. Kompileerige testid failis src/junit/Tests.java ja käivitage need
+   junit-i abil.
+
+   Kui kompilaator või JUnit-i teek mõne vea annab, siis proovige vea 
+   kirjeldusest väja lugeda, milles on probleem.
+
+   Kompileerimiseks
+   
+   > javac -classpath <välised teegid> <kompileeritavad failid>
+
+   Välised teegid on eraldatud Windows-i puhul semkooloniga ja Mac-i puhul kooloniga.
+   Nt. lib1.jar;lib2.jar või lib1.jar:lib2.jar
+
+   Vajalikud teegid on lib/hamcrest-all-1.3.jar ja lib/junit-4.12.jar
+   
+   Kompileeritavad failid on eraldatud tühikuga.
+   
+   Nt. junit/Tests.java junit/Code.java
+   
+   Käivitamiseks
+
+   > java -classpath <välised teegid ja viide kompileeritud testide asukohale> org.junit.runner.JUnitCore <käivitatava testide klassi täisnimi>
+
+2. Ülesande eesmärgiks on läbi proovida, kuidas käitub Javas == operaator.
+   
+   Kirjutage failis Tests.java meetodis equalityExamples() assert laused 
+   järgmistele tingimustele:   
+   
+   1 == 1 on tõene. Ehk assertTrue(1 == 1);
+   1 == 2 on väär. Ehk assertFalse(1 == 2);
+   
+   Integer x2 = 1;
+   Integer y2 = 1;
+   x2 == y2 on tõene
+   
+   Integer x = 128;
+   Integer y = 128;
+   x == y on väär
+   x.equals(y) on tõene
+   
+   "abc" == "abc" on tõene
+   "abc" == "a" + "bc" on tõene
+
+   String a = "a";
+   "abc" == a + "bc" on väär
+   "abc".equals(a + "bc") on tõene
+
+3. Kasutage konstruktsioone 
+
+     assertEquals(... , ...);
+     
+     assertThat(... , is(...));
+     
+     assertThat(... , is(equalTo(...)));
+     
+     assertThat(... , is(not(...)));
+   
+   võrdlemaks avaldisi
+   
+     1 + 2 on 3
+     
+     1 + 2 ei ole 4
+     
+     new int[] {1, 2, 3} on new int[] {1, 2, 3}
+     
+     new int[] {1, 2, 3} ei ole new int[] {1, 2}
+
+   Lisaks jälgige, millise veateate annab avaldiste '1' ja "1" võrdlemine.
+   Kasulik oleks meelde jätta, et sama kirjapilt ei tähenda tingimata võrdne olemist.
+   
+4. Kirjutage testid ja kood failis Code.java olevale meetodile isSpecial().
+
+   Arv on eriline, kui ta jagub üheteistkümnega või kui ta on kuni kolme 
+   võrra suurem, et üheteistkümnega jaguda.
+   
+   Kirjutage testid järgmistele juhtudele:
+   
+      Code.isSpecial(0) - tõene
+      Code.isSpecial(1) - tõene
+      Code.isSpecial(2) - tõene
+      Code.isSpecial(3) - tõene
+      Code.isSpecial(4) - väär
+   
+      Code.isSpecial(11) - tõene
+      Code.isSpecial(15) - väär
+   
+      Code.isSpecial(36) - tõene
+      Code.isSpecial(37) - väär
+
+   Kontrollimaks, kas number jagub mingi avuga on % operaator.
+
+   2 % 11 on 2 (jääk on 2 ehk ei jagu)
+   
+   11 % 11 on 0 (jääk on 0 ehk jagub täpselt)
+   
+   12 % 11 on 1 (jääk on 1 ehk ei jagu)
+
+5. Kopeerige varasemate ülesannete juurest meetodi mode() lahendus faili Code.java.
+
+   Kirjutage sellele meetodile test(id).
+
+   Vajalikud on järgmised testid:
+   
+     null annab null
+     "" annab null
+     "abcb" annab 'b'
+     "cbbc" annab 'c'
+
+   Viimane juht ütleb, et kui on kaks sama palju esinevat sümbolit, siis 
+   peaks valima selle, milline sümbol esimesena esines. Kui teie senine 
+   lahendus on teistsugune, siis peaksite selle ära muutma.
+
+   Muutke oma lahendust nii, et sümbolite lugemine oleks eraldi meetodis
+   getCharacterCount(). Kirjutage testid ka sellele alammeetodile.
+  
+6. Kirjutage testid ja kood failis Code.java olevale meetodile longestStreak().
+
+   longestStreak() võtab sisse string tüüpi muutuja ja ütleb, mis on kõige pikem 
+   on kõrvuti olevate samade sümbolite jada.
+   
+   Vajalikud on järgmised testid:
+   
+     "" annab 0
+     "a" annab 1
+     "abbcccaaaad" annab 4
+   
+   Kuidas stringist sümboleid saada:
+   
+     char character = "abc".charAt(0);
+
+     char[] characters = "abc".toCharArray();
+     
+7. Kirjutage kood failis Code.java olevale meetodile removeDuplicates().
+   
+   removeDuplicates() võtab sisse numbrite (int) massiivi ja tagastab 
+   uue massiivi.
+   
+   Kui sisendis on mõni element mitmekordselt (ei pea olema järjest), 
+   siis on väljundist kordused eemaldatud.
+   
+   new int[] {1, 1} annab new int[] {1}
+   
+   new int[] {1, 2, 1, 3, 2} annab new int[] {1, 2, 3}
+   
+   NB! List-i, Set-i või muid dünaamilisi kollektsioone ei tohi kasutada. 
+       Peate läbi saama ainult massiividega. 
+   
+       Olemasolevaid funktsioonie nagu Arrays.copyOf() ei tohi ka seekord 
+       kasutada. Kirjutage vastav loogika ise.
+   
+   Mõned vihjed
+
+    - Kasulik võiks olla abifunktsioon, mis ütleb, kas massiiv sisaldab 
+      mingit elementi.
+     
+    - null väärtust võib kasutada puuduvate väärtuste tähistamiseks.
+     
+    - Loengus oli näide selle kohta, kuidas massiivi ruumi juurde saada.
+      Ruumi vähendamine käib analoogiliselt.
+     
+8. Kirjutage meetod sumIgnoringDuplicates(), mis tagastab sisse antud
+   massiivi elementide summa. Kui mõni element on mitmekordselt, siis
+   teist korda seda summasse ei panda.
+   
+   new int[] {1, 1} annab vastuse 1
+   
+   new int[] {1, 2, 1, 2} annab vastuse 3
+
+9. Kopeerige kataloog src/junit enda reposse (icd0019) kataloogi src/junit.
+   
+    Veenduge, et kood kompileerub.
+    
+    Kui valite Idea-s Build menüüst -> Rebuild project peaks tulema teade 
+    "Compilation completed successfully ..."
+    
+    Commit-ige muudatused ja push-ige need Bitbucket-isse. 
+    
+    Lisage commit-ile tag ex03.
+    
+    Veenduge tulemuste lehelt, et tulemus on positiivne.
+
+10. Kui see ülesanne jääb tegemata, siis saate maksimaalse viie punkti 
+   asemel kolm. Seega selle korra ülesanded loetakse esitatuks ka ilma 
+   selleta. Kui see jääb tegemata saate lihtsalt kaks punkti vähem.
+   
+   Kirjutage meetod, mis leiab müügi andmete hulgast need tooted, mille 
+   müügitulu on suurem etteantud väärtusest.
+   
+   Müüdud toodete infot sisestatakse jooksvalt ja igal hetkel saab küsida, 
+   millised on seni enim müünud tooted. Ühe müügi kirje, sisaldab toote
+   identifikaatorit, hinda ja müüdud kogust.
+   
+   Klassis TopSalesFinderTests on testid, mis peaks selgitama, kuidas 
+   kood käituma peaks.
+   
+   Piirangud
+     - Dünaamilisi kollektsioone (nt. ArrayList()) kasutada ei tohi.
+       Kui arvate, et need on vajalikud, siis kirjutage need ise.
+       Test kontrollib, et te ei kasutaks klasse paketist java.util.
+       Samuti ei ole lubatud kasutada väliseid teeke.
+       
+     - Vahetulemuste jaoks mälu reserveerimine peab toimuma dünaamiliselt.
+       
+       Nt. new String[100000] kasutab põhjendamatuld palju mälu
+       kuna on võimalik, et tegelikult piisaks oluliselt vähemast.
+       
+     - Koodis on lubatud kasutada kahte (explicit) cast-i.
+
+     - Klassi SalesRecord ei peaks muutma.
+
+     - Duplikatsiooni võiks vältida.
+
+   Töö märgistage tag-iga ex03a.
+
+Lahendused (1-6) ja seletused: https://youtu.be/mUMD0mORG-M

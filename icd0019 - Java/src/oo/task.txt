@@ -1,0 +1,116 @@
+Objektid
+
+Harjutustunniks vajalik kood asub: https://bitbucket.org/mkalmo/icd0019oo
+
+1. Klassis oo.struct.Runner on test coordinatesAsArrays(), mis väljastab 
+   massiivis olevate punktide z-koordinaadid. See kood on liialt segane.
+   
+   Et koodi selgemaks muuta, kirjutage klass Point3D, milles on avalikud 
+   (public) väljad x, y ja z koordinaadi jaoks.
+   
+   Kirjutage coordinatesAsObjects() testi sisu, mis kasutab teie loodud 
+   Point3D klassi, z-koordinaatide väljastamiseks.
+   
+2. Kirjutage lõpuni klass oo.hide.Fibonacci, et tööle hakkaks test 
+   oo.hide.FibonacciTests.
+   
+   Fibonacci numbrid on: 0, 1, 1, 2, 3, 5, 8, 13, ...
+   
+   Fibonacci numbrite arvutamise valem on fib(n) = fib(n - 1) + fib(n - 2)
+   
+   Rohkem infot: https://en.wikipedia.org/wiki/Fibonacci_number   
+
+3. Kirjutage lõpuni klass oo.hide.Counter, et tööle hakkaksid testid 
+   klassis oo.hide.CounterTests.
+   
+   Konstruktorist antakse sisse algväärtus ja suurendamise samm.
+
+4. Kirjutage lõpuni klass oo.hide.Timer. 
+
+   Proovimiseks on klass oo.hide.Runner.
+   
+   Uue isendi loomisel peaks fikseerima praeguse aja. Klassil on meetod
+   getPassedTime(), mis ütleb, mitu sekundit on isendi loomisest möödunud.
+   
+   System.currentTimeMillis() ütleb, kui palju on möödunud millisekundeid 
+   ajahetkest January 1, 1970, kell 00:00.
+
+5. Kirjutage klassile oo.hide.Point meetodid toString() ja equals().
+
+   toString() meetodit saate kontrollida nii: System.out.println(new Point(1, 2));
+   
+   equals() meetodi kontrolliks on test oo.hide.EqualityTests.
+   
+   Abiks võib olla meetod java.util.Objects.equals();
+   
+6. Kirjutage lõpuni klass oo.hide.PointSet, millel on meetodid:
+
+   add() - lisab punkti hulka.
+   
+   size() - ütleb, mitu punkti on hulgas.
+
+   contains() - ütleb, kas argumendina antud punkt on hulgas.
+   
+   toString() - tagastab stringi, mis kujutab hulgas olevaid punkte.
+                nt: "(1, 2), (3, 4), (5, 1)"
+
+   equals() - ütleb, kas kaks hulka on võrsed ehk sisaldavad võrdseid elemente.
+
+   subtract() - tagastab uue hulga, milles on need esialgse hulga elemendid, mida 
+                teises hulgas ei eksisteeri. Esialgne hulk ei tohiks muutuda.
+
+   intersect() - tagastab uue hulga, milles on elemendid, mis on mõlemas 
+                 hulgas olemas. Esialgne hulk ei tohiks muutuda.
+
+   Hulgas ei ole duplikaate ehk kahte samade koordinaatidega punkti.
+   Kui lisatakse punkt, mis hulgas juba on, siis hulk ei muutu.   
+                
+   Hulgas olevaid punkte peaks hoidma massiivis. 
+
+   Punkti info hoidmiseks sobiks väga hästi Java record, mitte klass. 
+   Sellel korral peaksite aga just klassi kasutama, kuna record teeb teie 
+   eest mõned olulised asjad ära ja ülesande üks eesmärkidest on need asjad 
+   selgeks saada.
+
+   NB! List-i, Set-i või muid dünaamilisi kollektsioone ei tohi kasutada. 
+   Peate läbi saama ainult massiiviga.
+   
+   Massiivi suurus määrake objekti loomisel. Esialgu võiks ruumi olla nt.
+   kümnele elemendile. Ehk hulka saab panna kuni 10 elementi. 
+   
+   Selliselt fikseeritud suurusega saate enamuse koodist ära kirjutada.   
+   Hiljem lisage võimalus, et hulgale saaks esialgse suuruse ette anda ja 
+   kui esialgsest ruumist jääb väheks, siis peaks ruum (massiiv) automaatselt
+   kahekordseks kasvama.
+   
+   Kood peab läbmima testid klassist PointSetTests.
+
+7. Kui see ülesanne jääb tegemata, siis saate maksimaalse viie punkti 
+   asemel kolm. Seega selle korra ülesanded loetakse esitatuks ka ilma 
+   selleta. Kui see jääb tegemata saate lihtsalt kaks punkti vähem.
+
+   Lisage PointSet klassile elementide eemaldamise võimalus.
+   
+   Lisaks peab olmema võimalik hulka salvestada ka null elemente.
+   
+   Selle osa kontrollimiseks on testid klassist PointSetExtraTests.
+   
+8. Tõstke faild kataloogist src/oo oma Bitbucket-i 
+   reposse (icd0019) kataloogi src/oo.
+    
+    Veenduge, et kood kompileerub.
+    
+    Kui valite Idea-s Build menüüst -> Rebuild project peaks tulema teade 
+    "Compilation completed successfully ..."
+    
+    Veenduge, et testid lähevad läbi.
+    
+    Commit-ige muudatused ja push-ige need Bitbucket-isse. 
+    
+    Lisage commit-ile tag ex04.
+    
+    Kui tegite ka lisaülesande, siis pange LISAKS tag ex04a.
+    
+    Veenduge tulemuste lehelt, et tulemus on positiivne.
+
+Lahendused (1-5) Seletused (6): https://youtu.be/4YoNryz3nBs
